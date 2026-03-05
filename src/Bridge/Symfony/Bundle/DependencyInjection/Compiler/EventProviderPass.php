@@ -20,7 +20,7 @@ class EventProviderPass implements CompilerPassInterface
 {
     const TAG = 'calendr.event_provider';
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $eventManager = $container->getDefinition(Manager::class);
 

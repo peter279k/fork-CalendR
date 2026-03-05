@@ -77,7 +77,7 @@ class Day extends PeriodAbstract implements \Iterator
      * {@inheritdoc}
      */
     #[\ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return $this->current;
     }
@@ -86,7 +86,7 @@ class Day extends PeriodAbstract implements \Iterator
      * {@inheritdoc}
      */
     #[\ReturnTypeWillChange]
-    public function next()
+    public function next(): void
     {
         if (null === $this->current) {
             $this->current = $this->getFactory()->createHour($this->begin);
@@ -102,7 +102,7 @@ class Day extends PeriodAbstract implements \Iterator
      * {@inheritdoc}
      */
     #[\ReturnTypeWillChange]
-    public function key()
+    public function key(): mixed
     {
         return (int) $this->current->getBegin()->format('G');
     }
@@ -111,7 +111,7 @@ class Day extends PeriodAbstract implements \Iterator
      * {@inheritdoc}
      */
     #[\ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return null !== $this->current;
     }
@@ -120,7 +120,7 @@ class Day extends PeriodAbstract implements \Iterator
      * {@inheritdoc}
      */
     #[\ReturnTypeWillChange]
-    public function rewind()
+    public function rewind(): void
     {
         $this->current = null;
         $this->next();

@@ -22,7 +22,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class CalendRBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         if (method_exists($container, 'registerForAutoconfiguration')) {
             $container->registerForAutoconfiguration(ProviderInterface::class)->addTag(EventProviderPass::TAG);
